@@ -1,0 +1,14 @@
+{
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.lintTask.enable": true,
+  "eslint.codeAction.showDocumentation": {
+      "enable": true
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2
+}
