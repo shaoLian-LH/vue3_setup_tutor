@@ -618,6 +618,11 @@ pify@^4.0.1:
   resolved "https://registry.npm.taobao.org/pify/download/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha1-SyzSXFDVmHNcUCkiJP2MbfQeMjE=
 
+postcss-less@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.nlark.com/postcss-less/download/postcss-less-5.0.0.tgz?cache=0&sync_timestamp=1627346587136&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-less%2Fdownload%2Fpostcss-less-5.0.0.tgz#3fa361ed8e52a9c3e6e4fdb9bb95fd9032f3c62b"
+  integrity sha1-P6Nh7Y5SqcPm5P25u5X9kDLzxis=
+
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
   resolved "https://registry.nlark.com/postcss-modules-extract-imports/download/postcss-modules-extract-imports-3.0.0.tgz#cda1f047c0ae80c97dbe28c3e76a43b88025741d"
