@@ -7,7 +7,9 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "ant-design-vue": "^2.2.6",
     "axios": "^0.21.1",
+    "vite-plugin-components": "^0.13.2",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
