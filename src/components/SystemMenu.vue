@@ -1,6 +1,11 @@
 <template>
   <div class="logo">Logo</div>
-  <a-menu theme="dark" mode="inline" v-model:openKeys="menuKeys.openKeys" v-model:selectedKeys="menuKeys.selectedKeys">
+  <a-menu
+    theme="dark"
+    mode="inline"
+    v-model:openKeys="menuKeys.openKeys"
+    v-model:selectedKeys="menuKeys.selectedKeys"
+  >
     <a-sub-menu :key="option.key" v-for="option in menuOptions">
       <template #title>{{ option.label }}</template>
       <a-menu-item :key="item.key" v-for="item in option.children">
