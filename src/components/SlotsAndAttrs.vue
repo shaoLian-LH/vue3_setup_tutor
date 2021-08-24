@@ -1,9 +1,9 @@
 <template>
   <div>
     SlotsAndAttrs
-    <slot name="custom"></slot>
-    <slot></slot>
-    <slot name="dataSlot" :data="data.list"></slot>
+    <slot name="custom" />
+    <slot />
+    <slot name="dataSlot" :data="data.list" />
   </div>
 </template>
 

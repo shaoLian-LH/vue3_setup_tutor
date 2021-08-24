@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-  import SystemMenu from '../components/SystemMenu.vue'
+  import SystemMenu from '@/components/SystemMenu.vue'
   import { defineComponent } from 'vue'
   export default defineComponent({
     components: {

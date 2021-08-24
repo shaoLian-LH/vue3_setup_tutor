@@ -9,6 +9,7 @@
   "explorer.openEditors.visible": 0,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "eslint.format.enable": true,
   "eslint.alwaysShowStatus": true,
   "eslint.run": "onSave",
@@ -77,7 +78,6 @@
   },
   "stylelint.enable": true,
   "stylelint.packageManager": "yarn",
-  "liveServer.settings.donotShowInfoMsg": true,
   "telemetry.enableCrashReporter": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "path-intellisense.mappings": {
@@ -119,6 +119,22 @@
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "blade",
+    "ejs",
+    "javascript",
+    "typescript",
+    "plaintext",
+    "markdown",
+    "vue",
+    "HTML (EEx)",
+    "HTML (Eex)",
+    "plist",
+    "html",
+    "js"
+  ],
+  "auto-rename-tag.activationOnLanguage": ["*"],
   "cSpell.words": [
     "vben",
     "windi",
@@ -133,6 +149,9 @@
     "sider",
     "nprogress",
     "component",
-    "vuex"
+    "vuex",
+    "vite",
+    "prettierrc",
+    "vitejs"
   ]
 }

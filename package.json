@@ -13,17 +13,17 @@
   },
   "lint-staged": {
     "src*/**/*.js": [
-      "prettier --config .prettierrc.js --write",
+      "prettier --config ./.prettierrc.js --write",
       "eslint",
       "git add"
     ],
     "src*/**/*.ts": [
-      "prettier --config .prettierrc.js --write",
+      "prettier --config ./.prettierrc.js --write",
       "eslint",
       "git add"
     ],
     "src*/**/*.json": [
-      "prettier --config .prettierrc.js --write",
+      "prettier --config ./.prettierrc.js --write",
       "eslint",
       "git add"
     ]

@@ -22,8 +22,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'plugin:prettier/recommended'
+    'prettier'
   ],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -38,20 +37,8 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_'
-      }
-    ],
-    'no-unused-vars': [
-      'error',
-      {
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_'
-      }
-    ],
+    '@typescript-eslint/no-unused-vars': 'off', // setup sugar与该规则会产生冲突
+    'no-unused-vars': 'off',// setup sugar与该规则会产生冲突
     'space-before-function-paren': 'off',
     'vue/name-property-casing': ['error', 'PascalCase'], // vue/component-definition-name-casing 对组件定义名称强制使用特定的大小
     'vue/attributes-order': 'off',
@@ -63,12 +50,13 @@ module.exports = {
     'vue/attribute-hyphenation': 'off',
     'vue/require-default-prop': 'off',
     'vue/script-setup-uses-vars': 'off',
+    // 闭合标签配置
     'vue/html-self-closing': [
       'error',
       {
         html: {
           void: 'always',
-          normal: 'never',
+          normal: 'always',
           component: 'always'
         },
         svg: 'always',

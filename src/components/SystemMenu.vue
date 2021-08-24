@@ -3,8 +3,8 @@
   <a-menu theme="dark" mode="inline" v-model:openKeys="menuKeys.openKeys" v-model:selectedKeys="menuKeys.selectedKeys">
     <a-sub-menu :key="option.key" v-for="option in menuOptions">
       <template #title>{{ option.label }}</template>
-      <a-menu-item @click.stop="handleClick" :key="item.key" v-for="item in option.children">
-        <a target="_self" :href="item.href">{{ item.label }}</a>
+      <a-menu-item :key="item.key" v-for="item in option.children">
+        <router-link :to="item.href">{{ item.label }}</router-link>
       </a-menu-item>
     </a-sub-menu>
   </a-menu>
@@ -40,16 +40,12 @@
         },
         {
           label: '插槽与特性',
-          key: 'SlostAndAttrs',
-          href: '/SlostAndAttrs'
+          key: 'SlotsAndAttrs',
+          href: '/SlotsAndAttrs'
         }
       ]
     }
   ]
-
-  const handleClick = (e: Event) => {
-    console.log('click', e.target)
-  }
 </script>
 
 <style lang="less" scoped>
