@@ -26,6 +26,11 @@
       "prettier --config ./.prettierrc.js --write",
       "eslint",
       "git add"
+    ],
+    "src*/**/*.vue": [
+      "prettier --config ./.prettierrc.js --write",
+      "eslint",
+      "git add"
     ]
   },
   "dependencies": {
