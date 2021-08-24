@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-const msg = "hello vue3";
+  const msg = "hello vue3"
 </script>
