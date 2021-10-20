@@ -2,7 +2,10 @@
   "typescript.tsdk": "./node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "volar.tsPlugin": true,
-  "volar.tsPluginStatus": false,
+  "volar.tsPluginStatus": true,
+  "vetur.validation.template": false,
+  "vetur.validation.script": false,
+  "vetur.validation.style": false,
   //===========================================
   //============= Editor ======================
   //===========================================

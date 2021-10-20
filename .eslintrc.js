@@ -10,7 +10,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
     sourceType: 'module',
-    jsxPragma: 'React',
+    jsxPragma: 'Vue',
     ecmaFeatures: {
       jsx: true
     }
@@ -22,7 +22,8 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier'
+    'prettier',
+    'plugin:prettier/recommended'
   ],
   rules: {
     '@typescript-eslint/ban-ts-ignore': 'off',
@@ -31,17 +32,17 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     'vue/custom-event-name-casing': 'off',
-    'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': 'off',
+    'no-use-before-define': 'on',
+    '@typescript-eslint/no-use-before-define': 'on',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-unused-vars': 'off', // setup sugar与该规则会产生冲突
-    'no-unused-vars': 'off',// setup sugar与该规则会产生冲突
+    '@typescript-eslint/no-unused-vars': 'off', // setup sugar与该规则会产生冲突，需要关闭
+    'no-unused-vars': 'off', // setup sugar与该规则会产生冲突，需要关闭
     'space-before-function-paren': 'off',
     'vue/name-property-casing': ['error', 'PascalCase'], // vue/component-definition-name-casing 对组件定义名称强制使用特定的大小
-    'vue/attributes-order': 'off',
+    'vue/attributes-order': 'on',
     'vue/one-component-per-file': 'off',
     'vue/html-closing-bracket-newline': 'off',
     'vue/max-attributes-per-line': 'off',
@@ -49,7 +50,8 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     'vue/attribute-hyphenation': 'off',
     'vue/require-default-prop': 'off',
-    'vue/script-setup-uses-vars': 'off',
+    'vue/script-setup-uses-vars': 'on',
+    'vue/no-multiple-template-root': 0,
     // 闭合标签配置
     'vue/html-self-closing': [
       'error',

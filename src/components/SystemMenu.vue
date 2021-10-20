@@ -1,27 +1,24 @@
 <template>
   <div class="logo">Logo</div>
-  <a-menu
-    theme="dark"
-    mode="inline"
-    v-model:openKeys="menuKeys.openKeys"
-    v-model:selectedKeys="menuKeys.selectedKeys"
-  >
-    <a-sub-menu :key="option.key" v-for="option in menuOptions">
-      <template #title>{{ option.label }}</template>
-      <a-menu-item :key="item.key" v-for="item in option.children">
-        <router-link :to="item.href">{{ item.label }}</router-link>
-      </a-menu-item>
-    </a-sub-menu>
-  </a-menu>
+  <n-menu v-model="expandedKeys" mode="vertical" :options="menuOptions" />
 </template>
 
 <script lang="ts" setup>
-  import { reactive } from 'vue'
+  import { h, ref } from 'vue'
+  import { RouterLink } from 'vue-router'
+  const expandedKeys = ref(['recently-call'])
 
-  const menuKeys = reactive({
-    openKeys: ['recently-call'],
-    selectedKeys: []
-  })
+  const renderALink = (href: string, name: string) => {
+    return h(
+      RouterLink,
+      {
+        to: {
+          path: href
+        }
+      },
+      { default: () => name }
+    )
+  }
 
   const menuOptions = [
     {
@@ -29,24 +26,26 @@
       key: 'recently-call',
       children: [
         {
-          label: '响应式',
-          key: 'Reactivity',
-          href: '/Reactivity'
+          label: () => renderALink('/Reactivity', '响应式'),
+          key: 'Reactivity'
         },
         {
-          label: '动态组件',
-          key: 'Dynamic',
-          href: '/Dynamic'
+          label: () => renderALink('/PropsAndEmit', 'Props和Emit'),
+          key: 'PropsAndEmit'
         },
         {
-          label: '属性与事件',
-          key: 'PropsAndEmit',
-          href: '/PropsAndEmit'
-        },
+          label: () => renderALink('/SlotsAndAttrs', '插槽和属性'),
+          key: 'SlotsAndAttrs'
+        }
+      ]
+    },
+    {
+      label: '思想',
+      key: 'thinks',
+      children: [
         {
-          label: '插槽与特性',
-          key: 'SlotsAndAttrs',
-          href: '/SlotsAndAttrs'
+          label: () => renderALink('/OrthogonalComp', '正交的组件'),
+          ket: 'OrthogonalComp'
         }
       ]
     }

@@ -4,9 +4,10 @@ import BasicLayout from '@/layouts/BasicLayout.vue'
 // components
 import Home from '@/views/Home/index.vue'
 import Reactivity from '@/views/Reactivity/index.vue'
-import DynamicComponent from '@/views/DynamicComponents/index.vue'
+import AsyncLibrary from '@/views/AsyncLibrary/index.vue'
 import PropsAndEmits from '@/views/PropsAndEmit/index.vue'
 import SlotsAndAttrs from '@/views/SlotsAndAttrs/index.vue'
+import OrthogonalComp from '@/views/OrthogonalComp/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,11 +26,6 @@ const routes: Array<RouteRecordRaw> = [
         component: Reactivity
       },
       {
-        path: '/Dynamic',
-        name: 'Dynamic',
-        component: DynamicComponent
-      },
-      {
         path: '/PropsAndEmit',
         name: 'PropsAndEmit',
         component: PropsAndEmits
@@ -38,6 +34,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/SlotsAndAttrs',
         name: 'SlotsAndAttrs',
         component: SlotsAndAttrs
+      },
+      {
+        path: '/OrthogonalComp',
+        name: 'OrthogonalComp',
+        component: OrthogonalComp
       }
     ]
   }

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Layout, Menu } from 'ant-design-vue'
+import 'vfonts/Lato.css'
+import naive from 'naive-ui'
 
-createApp(App).use(store).use(Layout).use(Menu).use(router).mount('#app')
+createApp(App).use(store).use(naive).use(router).mount('#app')

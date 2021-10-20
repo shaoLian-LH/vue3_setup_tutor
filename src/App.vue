@@ -1,12 +1,20 @@
 <template>
-  <router-view />
+  <n-config-provider :theme="darkTheme">
+    <router-view />
+  </n-config-provider>
 </template>
 
 <script lang="ts">
-  import { defineComponent } from 'vue'
+  import { defineComponent, ref } from 'vue'
+  import { darkTheme } from 'naive-ui'
 
   export default defineComponent({
-    name: 'App'
+    name: 'App',
+    setup() {
+      return {
+        darkTheme
+      }
+    }
   })
 </script>
 
