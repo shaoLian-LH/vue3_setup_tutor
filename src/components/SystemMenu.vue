@@ -45,8 +45,12 @@
       children: [
         {
           label: () => renderALink('/OrthogonalComp', '正交的组件'),
-          ket: 'OrthogonalComp'
+          key: 'OrthogonalComp'
         }
+        // {
+        //   label: () => renderALink('/Immutable', '不可变值'),
+        //   key: 'Immutable'
+        // }
       ]
     }
   ]
