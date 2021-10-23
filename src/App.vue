@@ -1,21 +1,11 @@
 <template>
-  <n-config-provider :theme="darkTheme">
+  <a-config-provider :locale="zhCN">
     <router-view />
-  </n-config-provider>
+  </a-config-provider>
 </template>
 
-<script lang="ts">
-  import { defineComponent, ref } from 'vue'
-  import { darkTheme } from 'naive-ui'
-
-  export default defineComponent({
-    name: 'App',
-    setup() {
-      return {
-        darkTheme
-      }
-    }
-  })
+<script lang="ts" setup>
+  import zhCN from 'ant-design-vue/es/locale/zh_CN'
 </script>
 
 <style>

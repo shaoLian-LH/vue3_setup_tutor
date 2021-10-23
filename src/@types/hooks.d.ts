@@ -7,12 +7,6 @@ export interface IFetchResult<T> {
   error: Ref<any>
 }
 
-export interface IArticleHookResult {
-  isFetching: Ref<boolean>
-  error: Ref<unknown>
-  data: Ref<Array<Object>>
-}
-
 // declare module 'hooks/*' {
 //   namespace useArticles {
 //     function useArticles(): IArticleHookResult

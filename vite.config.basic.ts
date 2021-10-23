@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
+import ViteComponents, { AntDesignVueResolver } from 'vite-plugin-components'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    ViteComponents({
+      customComponentResolvers: [AntDesignVueResolver()] // antd按需引入
+    })
+  ],
   resolve: {
     alias: [
       { find: '@', replacement: '/src' },

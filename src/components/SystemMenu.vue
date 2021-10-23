@@ -1,40 +1,52 @@
 <template>
   <div class="logo">Logo</div>
-  <n-menu v-model="expandedKeys" mode="vertical" :options="menuOptions" />
+  <a-menu
+    v-model:selectedKeys="selectedKeys"
+    v-model:openKeys="expandedKeys"
+    mode="vertical"
+    :options="menuOptions"
+  >
+    <a-sub-menu v-for="item in menuOptions" :key="item.key">
+      <template #title>{{ item.label }}</template>
+      <a-menu-item
+        v-for="child in item.children"
+        :key="child.key"
+        @click="
+          () => {
+            handleClick(child.key)
+          }
+        "
+      >
+        {{ child.label }}
+      </a-menu-item>
+    </a-sub-menu>
+  </a-menu>
 </template>
 
 <script lang="ts" setup>
-  import { h, ref } from 'vue'
-  import { RouterLink } from 'vue-router'
-  const expandedKeys = ref(['recently-call'])
-
-  const renderALink = (href: string, name: string) => {
-    return h(
-      RouterLink,
-      {
-        to: {
-          path: href
-        }
-      },
-      { default: () => name }
-    )
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+  const expandedKeys = ref<string[]>(['recently-call'])
+  const selectedKeys = ref<string[]>([])
+  const router = useRouter()
+  const handleClick = (key: string) => {
+    router.push(`/${key}`)
   }
-
   const menuOptions = [
     {
       label: '基础方法',
       key: 'recently-call',
       children: [
         {
-          label: () => renderALink('/Reactivity', '响应式'),
+          label: '响应式',
           key: 'Reactivity'
         },
         {
-          label: () => renderALink('/PropsAndEmit', 'Props和Emit'),
+          label: 'Props和Emit',
           key: 'PropsAndEmit'
         },
         {
-          label: () => renderALink('/SlotsAndAttrs', '插槽和属性'),
+          label: '插槽和属性',
           key: 'SlotsAndAttrs'
         }
       ]
@@ -44,13 +56,9 @@
       key: 'thinks',
       children: [
         {
-          label: () => renderALink('/OrthogonalComp', '正交的组件'),
+          label: '正交的组件',
           key: 'OrthogonalComp'
         }
-        // {
-        //   label: () => renderALink('/Immutable', '不可变值'),
-        //   key: 'Immutable'
-        // }
       ]
     }
   ]

@@ -35,9 +35,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^6.6.2",
+    "ant-design-vue": "3.0.0-alpha.4",
     "axios": "^0.21.1",
-    "naive-ui": "^2.19.9",
-    "vfonts": "^0.1.0",
     "vite-plugin-components": "^0.13.2",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0-0",

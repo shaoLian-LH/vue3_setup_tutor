@@ -1,15 +1,15 @@
 <template>
-  <n-layout class="basic-layout" has-sider>
-    <n-layout-sider>
+  <a-layout class="basic-layout" has-sider>
+    <a-layout-sider>
       <SystemMenu />
-    </n-layout-sider>
-    <n-layout>
-      <n-layout-header>一些组件示例</n-layout-header>
-      <n-layout-content style="padding: 12px">
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header>一些组件示例</a-layout-header>
+      <a-layout-content style="padding: 12px">
         <router-view />
-      </n-layout-content>
-    </n-layout>
-  </n-layout>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
 </template>
 
 <script lang="ts">

@@ -21,7 +21,7 @@ export const useMyFetch = <T>(
             ctx.data = JSON.parse(ctx.data)
           } catch (e) {}
         }
-        return ctx?.data
+        return ctx
       },
       refetch: true
     }
