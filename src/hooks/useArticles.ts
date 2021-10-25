@@ -1,51 +1,63 @@
 import { useMyFetch } from './useMyFetch'
-import { Ref, ref, watch } from 'vue'
-export interface IArticle {
-  addTime: string
-  fire: number
-  id: string
-  introduce: string
-  tagName: string
-  title: string
-  typeId: number
+import { Ref, ref, unref, watch } from 'vue'
+import { message } from 'ant-design-vue'
+import { IArticle } from '@/@types/articles'
+import { IPageInfo } from '@/@types/global'
+import { Fn } from '@vueuse/core'
+
+interface IResult {
+  infos: IPageInfo<IArticle>
 }
 
-export interface IPageInfo {
-  pages: number
+interface ITablePageInfo {
+  total: number
   pageSize: number
-  list: IArticle[]
+  current: number
 }
-export interface IResult {
-  infos: IPageInfo
-}
-interface IArticleHookResult {
+export interface IArticleHookResult {
   isFetching: Ref<boolean>
-  error: Ref<unknown>
-  data: Ref<IArticle[]>
-  pageInfo: Ref<IPageInfo>
+  data: Ref<IArticle[]> | any
+  pageInfo: Ref<ITablePageInfo>
 }
 
-export const useArticles = (pn?: Ref<number>): IArticleHookResult => {
-  const { isFetching, error, data } = useMyFetch<IResult>(
-    `/api/article?pn=${pn?.value || 1}`
-  )
+export const useArticles = (
+  pn: Ref<number>,
+  filter?: (articles: IArticle[]) => void
+): IArticleHookResult => {
+  // 存储文章列表
   const articles = ref<IArticle[]>([])
-  const pageInfo = ref<IPageInfo>({
-    pages: 0,
+  // url改造为响应式
+  const url = ref(`/api/article?pn=${pn.value}`)
+  // 存储分页信息
+  const pageInfo = ref<ITablePageInfo>({
+    total: 0,
     pageSize: 8,
-    list: []
+    current: pn.value || 1
   })
-  watch([isFetching, data], () => {
-    if (!isFetching.value && data.value) {
-      const targetValue = data.value?.infos.list as unknown as IArticle[]
-      pageInfo.value = data.value.infos
-      articles.value = targetValue
+  // 分页改变时改变url，自动触发获取数据
+  watch([pn], ([newPn], [oldPn]) => {
+    if (newPn !== oldPn) {
+      url.value = `/api/article?pn=${pn.value}`
+      pageInfo.value.current = newPn
     }
   })
+  // 获取数据
+  const { isFetching, error, data } = useMyFetch<IResult>(url)
+  watch([isFetching], () => {
+    if (!isFetching.value && data.value) {
+      const infos = data.value.infos
+      const targetValue = infos.list as unknown as IArticle[]
+      pageInfo.value.total = infos.total
+      articles.value = targetValue
+    }
+    if (error.value) {
+      message.error('请求文章列表失败')
+    }
+  })
+
   return {
     isFetching,
-    error,
-    data: articles,
+    data: filter ? filter(articles.value) : articles,
     pageInfo: pageInfo
   }
 }
