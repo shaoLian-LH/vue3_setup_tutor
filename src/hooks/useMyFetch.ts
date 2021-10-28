@@ -1,5 +1,5 @@
 import { useFetch as UF, MaybeRef, Fn } from '@vueuse/core'
-import { onUnmounted, watch, ref, unref, Ref } from 'vue'
+import { onUnmounted, ref, unref, Ref } from 'vue'
 
 export interface IFetchResult<T> {
   isFetching: Ref<boolean>

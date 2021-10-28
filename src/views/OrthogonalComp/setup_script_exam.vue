@@ -31,15 +31,19 @@
   const { isFetching, error, data } = useMyFetch<IResult>(url)
 
   // 监听并处理原始数据
-  watch([isFetching, data], () => {
-    if (!isFetching.value && data.value) {
-      const articleInfo = data.value.infos
-      articles.value = articleInfo.list as unknown as IArticle[]
-      pageInfo.value.total = articleInfo.total
-    } else if (error.value) {
-      message.error(error.value)
-    }
-  })
+  watch(
+    [isFetching, data],
+    () => {
+      if (!isFetching.value && data.value) {
+        const articleInfo = data.value.infos
+        articles.value = articleInfo.list as unknown as IArticle[]
+        pageInfo.value.total = articleInfo.total
+      } else if (error.value) {
+        message.error(error.value)
+      }
+    },
+    { immediate: false }
+  )
 
   // 处理翻页
   const handleTableChange = (pagination: TablePaginationConfig) => {

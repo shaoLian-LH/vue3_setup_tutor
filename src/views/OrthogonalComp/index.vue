@@ -1,5 +1,8 @@
 <script lang="ts" setup>
-  import { useArticles } from 'hooks/useArticles'
+  import {
+    useArticles
+    // ArticleService
+  } from 'hooks/useArticles'
   import { ref } from 'vue'
   import { columns } from './tableConfig'
   import { TablePaginationConfig } from 'ant-design-vue/lib/table/index'
@@ -10,7 +13,10 @@
     pn.value = pagination.current || 1
   }
   // pn是响应式的，pn的改变会再次触发useArticles
-  const { data, isFetching, pageInfo } = useArticles(pn)
+  const { data, isFetching, pageInfo } = useArticles(pn, (articles) => {
+    articles.forEach((article) => article)
+  })
+  // const { data, isFetching, pageInfo } = ArticleService.list(pn)
 </script>
 
 <template>

@@ -58,6 +58,10 @@
         {
           label: '正交的组件',
           key: 'OrthogonalComp'
+        },
+        {
+          label: '异步组件',
+          key: 'AsyncLibrary'
         }
       ]
     }

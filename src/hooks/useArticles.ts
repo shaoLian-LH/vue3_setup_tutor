@@ -1,9 +1,8 @@
 import { useMyFetch } from './useMyFetch'
-import { Ref, ref, unref, watch } from 'vue'
+import { Ref, ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { message } from 'ant-design-vue'
 import { IArticle } from '@/@types/articles'
 import { IPageInfo } from '@/@types/global'
-import { Fn } from '@vueuse/core'
 
 interface IResult {
   infos: IPageInfo<IArticle>
@@ -20,9 +19,16 @@ export interface IArticleHookResult {
   pageInfo: Ref<ITablePageInfo>
 }
 
+type articleFilter = (articles: IArticle[]) => void
+export class ArticleService {
+  static list(pn: Ref<number>, filter?: articleFilter) {
+    return useArticles(pn, filter)
+  }
+}
+
 export const useArticles = (
   pn: Ref<number>,
-  filter?: (articles: IArticle[]) => void
+  filter?: articleFilter
 ): IArticleHookResult => {
   // 存储文章列表
   const articles = ref<IArticle[]>([])

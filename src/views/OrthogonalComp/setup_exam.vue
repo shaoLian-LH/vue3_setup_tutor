@@ -37,7 +37,7 @@
       watch([isFetching, data], () => {
         if (!isFetching.value && data.value) {
           const articleInfo = data.value.infos
-          articles.value = articleInfo.list as unknown as IArticle[]
+          articles.value = articleInfo.list as IArticle[]
           pageInfo.value.total = articleInfo.total
         } else if (error.value) {
           message.error(error.value)

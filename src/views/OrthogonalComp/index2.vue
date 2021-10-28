@@ -24,7 +24,7 @@
         this.isFetching = true
         axios
           .get(`/api/articles?pn=${pn}`)
-          .then((res) => {
+          .then((res: any) => {
             // 没有任何限制的any scripts，完全没有静态检查
             const data = res.data
             this.data = data.infos.list
