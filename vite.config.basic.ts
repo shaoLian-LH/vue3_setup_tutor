@@ -1,12 +1,15 @@
 import { defineConfig } from 'vite'
-import ViteComponents, { AntDesignVueResolver } from 'vite-plugin-components'
+import ViteComponents from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [
     vue(),
     ViteComponents({
-      customComponentResolvers: [AntDesignVueResolver()] // antd按需引入
+      resolvers: [ElementPlusResolver()],
+      dts: true,
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/]
     })
   ],
   resolve: {
