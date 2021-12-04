@@ -19,4 +19,8 @@
     margin-top: 0px;
     height: 100vh;
   }
+  p,
+  span {
+    color: white;
+  }
 </style>

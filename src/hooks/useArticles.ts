@@ -1,5 +1,5 @@
 import { useMyFetch } from './useMyFetch'
-import { Ref, ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { Ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { IArticle } from '@/@types/articles'
 import { IPageInfo } from '@/@types/global'

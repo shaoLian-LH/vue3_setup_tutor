@@ -2,13 +2,9 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 // layouts
 import BasicLayout from '@/layouts/BasicLayout.vue'
 // components
-import Home from '@/views/Home/index.vue'
-import Reactivity from '@/views/Reactivity/index.vue'
-import AsyncLibrary from '@/views/AsyncLibrary/index.vue'
-import PropsAndEmits from '@/views/PropsAndEmit/index.vue'
-import SlotsAndAttrs from '@/views/SlotsAndAttrs/index.vue'
-import OrthogonalComp from '@/views/OrthogonalComp/index.vue'
-// import Immutable from '@/views/Immutable/index.vue'
+// import TestArea from '@/views/TestArea/index.vue'
+// views
+import TwoReactive from '@/views/TwoReactive/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,40 +13,10 @@ const routes: Array<RouteRecordRaw> = [
     component: BasicLayout,
     children: [
       {
-        path: '/',
-        name: 'Home',
-        component: Home
-      },
-      {
-        path: '/Reactivity',
-        name: 'Reactivity',
-        component: Reactivity
-      },
-      {
-        path: '/PropsAndEmit',
-        name: 'PropsAndEmit',
-        component: PropsAndEmits
-      },
-      {
-        path: '/SlotsAndAttrs',
-        name: 'SlotsAndAttrs',
-        component: SlotsAndAttrs
-      },
-      {
-        path: '/OrthogonalComp',
-        name: 'OrthogonalComp',
-        component: OrthogonalComp
-      },
-      {
-        path: '/AsyncLibrary',
-        name: 'AsyncLibrary',
-        component: AsyncLibrary
+        path: '/TwoReactive',
+        name: 'TwoReactive',
+        component: TwoReactive
       }
-      // {
-      //   path: '/Immutable',
-      //   name: 'Immutable',
-      //   component: Immutable
-      // }
     ]
   }
 ]

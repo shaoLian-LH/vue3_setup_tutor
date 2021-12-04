@@ -1,10 +1,10 @@
 <template>
-  <a-layout class="basic-layout" has-sider>
-    <a-layout-sider>
-      <SystemMenu />
+  <a-layout class="basic-layout">
+    <a-layout-sider :width="siderCollapsed ? '120' : '220'">
+      <SystemMenu v-model:collapsed="siderCollapsed" />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header>一些组件示例</a-layout-header>
+      <a-layout-header style="opacity: 0.96" />
       <a-layout-content style="padding: 12px">
         <router-view />
       </a-layout-content>
@@ -12,14 +12,9 @@
   </a-layout>
 </template>
 
-<script lang="ts">
-  import SystemMenu from '@/components/SystemMenu.vue'
-  import { defineComponent } from 'vue'
-  export default defineComponent({
-    components: {
-      SystemMenu
-    }
-  })
+<script lang="ts" setup>
+  import SystemMenu from './Menu/index.vue'
+  const siderCollapsed = ref(false)
 </script>
 
 <style lang="less" scoped>

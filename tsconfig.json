@@ -18,8 +18,8 @@
     "noUnusedLocals": true,
     "paths": {
       "@/*": ["./src/*"],
+      "@C/*": ["./src/components/*"],
       "hooks/*": ["./src/hooks/*"],
-      "types/*": ["./src/@types/*"]
     }
   },
   "include": [

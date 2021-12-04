@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-  import {
-    useArticles
-    // ArticleService
-  } from 'hooks/useArticles'
+  import { useArticles } from 'hooks/useArticles'
   import { ref } from 'vue'
   import { columns } from './tableConfig'
   import { TablePaginationConfig } from 'ant-design-vue/lib/table/index'

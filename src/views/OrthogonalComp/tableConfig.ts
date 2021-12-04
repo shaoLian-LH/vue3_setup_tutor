@@ -1,5 +1,5 @@
-import { TableColumnProps } from 'ant-design-vue'
-export const columns: TableColumnProps[] = [
+import { TableColumnType } from 'ant-design-vue'
+export const columns: TableColumnType[] = [
   {
     key: 'title',
     dataIndex: 'title',

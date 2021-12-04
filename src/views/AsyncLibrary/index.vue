@@ -9,8 +9,6 @@
     loader: () =>
       import('https://cdn.bootcdn.net/ajax/libs/antd/4.16.9/antd.js')
   })
-
-  console.log('Antd - ', Antd)
 </script>
 
 <style></style>

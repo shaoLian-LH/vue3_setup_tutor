@@ -155,6 +155,9 @@
     "vuex",
     "vite",
     "prettierrc",
-    "vitejs"
+    "vitejs",
+    "tailwind",
+    "antd",
+    "Antd"
   ]
 }
