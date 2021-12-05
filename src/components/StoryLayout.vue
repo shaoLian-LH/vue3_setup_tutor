@@ -13,6 +13,7 @@
   }
   interface IStoryLayoutProps {
     title: string
+    justTip?: Boolean
   }
   const props = defineProps<IStoryLayoutProps>()
 </script>
@@ -24,7 +25,11 @@
       </div>
       <div class="text-right flex justify-center inline-block pr-8">
         <span class="text-base text-black mr-4">{{ modeRef }}</span>
-        <a-switch @change="handleModeChange" :checked="modeRef === 'Code'" />
+        <a-switch
+          v-if="!props.justTip"
+          @change="handleModeChange"
+          :checked="modeRef === 'Code'"
+        />
       </div>
     </div>
     <div class="container w-full p-16">

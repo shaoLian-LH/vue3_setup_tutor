@@ -1,7 +1,9 @@
 <template>
-  <a-config-provider :locale="zhCN">
-    <router-view />
-  </a-config-provider>
+  <keep-alive>
+    <a-config-provider :locale="zhCN">
+      <router-view />
+    </a-config-provider>
+  </keep-alive>
 </template>
 
 <script lang="ts" setup>

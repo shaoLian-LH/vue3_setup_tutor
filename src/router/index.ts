@@ -1,10 +1,35 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 // layouts
 import BasicLayout from '@/layouts/BasicLayout.vue'
-// components
-// import TestArea from '@/views/TestArea/index.vue'
 // views
-import TwoReactive from '@/views/TwoReactive/index.vue'
+// 生命周期
+import LifeCycle from '@/tutor/lifecycle/vue2.vue'
+import LifeCycleVueOptionsSetup from '@/tutor/lifecycle/vue3OptionsSetup.vue'
+import LifeCycleVueOptionsWithComposition from '@/tutor/LifeCycle/vue3OptionsWithCompositionSetup.vue'
+import LifeCycleComposition from '@/tutor/LifeCycle/vue3Composition.vue'
+// 基础使用
+// todoList案例
+import optionsTodoList from '@/tutor/baseUsage/options/index.vue'
+import compositionTodoList from '@/tutor/baseUsage/composition/index.vue'
+import setupScriptTodoList from '@/tutor/baseUsage/setupScript/index.vue'
+// 3个ref
+// 这个地方先讲PPT或者README.md
+import RefBase from '@/tutor/refGroup/howToUseRef.vue'
+import RefShallowUnPackage from '@/tutor/refGroup/refShallowUnPackage.vue'
+import HowToUseToRefAndToRefs from '@/tutor/refGroup/HowToUseToRefAndToRefs.vue'
+import TodoListWithRef from '@/tutor/refGroup/todo/index.vue'
+// 响应式下的业务逻辑
+import WatchBaseUse from '@/tutor/logicUnderProxy.vue'
+// hook
+import HookTodoList from '@/tutor/todoList/index.vue'
+
+const formatPathAndName = (pathName: string) => {
+  const target = pathName.replace(/^\/*/, '')
+  return {
+    path: `/${target}`,
+    name: target
+  }
+}
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,10 +37,63 @@ const routes: Array<RouteRecordRaw> = [
     name: 'BasicLayout',
     component: BasicLayout,
     children: [
+      // 生命周期
       {
-        path: '/TwoReactive',
-        name: 'TwoReactive',
-        component: TwoReactive
+        ...formatPathAndName('lifeCycle'),
+        component: LifeCycle
+      },
+      {
+        ...formatPathAndName('lifeCycle/vue3optionsSetup'),
+        component: LifeCycleVueOptionsSetup
+      },
+      {
+        ...formatPathAndName('lifeCycle/vue3OptionsWithCompositionSetup'),
+        component: LifeCycleVueOptionsWithComposition
+      },
+      {
+        ...formatPathAndName('lifeCycle/vue3Composition'),
+        component: LifeCycleComposition
+      },
+      // 基础使用
+      // todoList案例
+      {
+        ...formatPathAndName('baseUsage/optionsApi'),
+        component: optionsTodoList
+      },
+      {
+        ...formatPathAndName('baseUsage/compositionApi'),
+        component: compositionTodoList
+      },
+      {
+        ...formatPathAndName('baseUsage/setupScript'),
+        component: setupScriptTodoList
+      },
+      // 三个ref
+      {
+        ...formatPathAndName('threeRefs/howToUseRef'),
+        component: RefBase
+      },
+      {
+        ...formatPathAndName('threeRefs/refShallowUnPackage'),
+        component: RefShallowUnPackage
+      },
+      {
+        ...formatPathAndName('threeRefs/toRefAndToRefs'),
+        component: HowToUseToRefAndToRefs
+      },
+      {
+        ...formatPathAndName('threeRefs/todoListWithRef'),
+        component: TodoListWithRef
+      },
+      // 响应式下的业务逻辑
+      {
+        ...formatPathAndName('logicUnderProxy/watch'),
+        component: WatchBaseUse
+      },
+      // hook
+      {
+        ...formatPathAndName('hookArea/todoList'),
+        component: HookTodoList
       }
     ]
   }

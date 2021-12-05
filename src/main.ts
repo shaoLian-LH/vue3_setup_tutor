@@ -8,7 +8,6 @@ import store from './store'
 import 'reset-css'
 import './config/global.css'
 import 'ant-design-vue/dist/antd.less'
-import 'highlight.js/styles/monokai.css'
 // components lib
 import Antd from 'ant-design-vue'
 

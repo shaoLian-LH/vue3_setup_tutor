@@ -12,14 +12,13 @@
     "declarationDir": "src/@types",
     "resolveJsonModule": true,
     "rootDir": ".",
-    "baseUrl": ".",
     "jsx": "preserve",
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "paths": {
       "@/*": ["./src/*"],
       "@C/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
+      "hooks/*": ["./src/hooks/*"]
     }
   },
   "include": [
