@@ -30,9 +30,8 @@ export const useTodoList = () => {
   const removeAThing = (id: number) => {
     todoListData.list = todoListData.list.filter((conf) => conf.id !== id)
   }
-
   return {
-    ...toRefs(reactive),
+    ...toRefs(todoListData),
     submitAThing,
     removeAThing
   }

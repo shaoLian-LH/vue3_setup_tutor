@@ -19,9 +19,9 @@ import RefShallowUnPackage from '@/tutor/refGroup/refShallowUnPackage.vue'
 import HowToUseToRefAndToRefs from '@/tutor/refGroup/HowToUseToRefAndToRefs.vue'
 import TodoListWithRef from '@/tutor/refGroup/todo/index.vue'
 // 响应式下的业务逻辑
-import WatchBaseUse from '@/tutor/logicUnderProxy.vue'
+import WatchBaseUse from '@/tutor/logicUnderProxy/watch.vue'
 // hook
-import HookTodoList from '@/tutor/todoList/index.vue'
+import HookTodoList from '@/tutor/hookArea/todoList/index.vue'
 
 const formatPathAndName = (pathName: string) => {
   const target = pathName.replace(/^\/*/, '')

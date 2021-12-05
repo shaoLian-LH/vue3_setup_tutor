@@ -83,7 +83,7 @@ export const Catalog: ICatalogItemProps[] = [
     children: [
       {
         title: 'useTodoList',
-        id: 'hook/todoList'
+        id: 'hookArea/todoList'
       }
     ]
   }

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <StoryLayout title="Vue3.2后的todoList" :just-tip="true">
+  <StoryLayout title="hook加持的todoList" :just-tip="true">
     <template #story>
       <TodoList />
     </template>
