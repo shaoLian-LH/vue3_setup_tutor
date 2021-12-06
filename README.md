@@ -1,5 +1,8 @@
 # Vue3 学习
 
+> 课程相关源码在 tutor 文件夹内使用 node version >= 14 (stable)，yarn && yarn
+> dev 或 npm i && npm run dev 启动此工程
+
 ## 启动一个基于 vite 的标准工程
 
 `yarn create vite my-vite-app --template vue-ts`
