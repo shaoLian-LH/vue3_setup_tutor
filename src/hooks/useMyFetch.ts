@@ -12,6 +12,7 @@ export const useMyFetch = <T>(
   method?: 'get',
   headers?: HeadersInit
 ): IFetchResult<T> => {
+  console.log('useMyFetch - url - ', url)
   // 使用浏览器提供的Fetch函数进行请求
   const { abort, canAbort, isFetching, data, error } = UF<T>(
     url,

@@ -25,44 +25,50 @@ interface ITablePageInfo {
 export interface IArticleHookResult {
   isFetching: Ref<boolean>
   data: Ref<IArticle[]> | any
-  pageInfo: Ref<ITablePageInfo>
+  pageInfo: ITablePageInfo
+  pageHandler: (id: number, pageSize?: number) => void
 }
 
 type articleFilter = (articles: IArticle[]) => void
-export class ArticleService {
-  static list(pn: Ref<number>, filter?: articleFilter) {
-    return useArticles(pn, filter)
-  }
-}
 
 export const useArticles = (
-  pn: Ref<number>,
+  pn: number,
   filter?: articleFilter
 ): IArticleHookResult => {
   // 存储文章列表
   const articles = ref<IArticle[]>([])
   // url改造为响应式
-  const url = ref(`/api/article?pn=${pn.value}`)
+  const url = ref(`/api/article?pn=${pn || 1}`)
   // 存储分页信息
-  const pageInfo = ref<ITablePageInfo>({
+  const pageInfo = reactive<ITablePageInfo>({
     total: 0,
     pageSize: 8,
-    current: pn.value || 1
+    current: pn || 1
   })
-  // 分页改变时改变url，自动触发获取数据
-  watch([pn], ([newPn], [oldPn]) => {
-    if (newPn !== oldPn) {
-      url.value = `/api/article?pn=${pn.value}`
-      pageInfo.value.current = newPn
+  // 翻页
+  const pageHandler = (pn: number, pageSize?: number) => {
+    pageInfo.current = pn || 1
+    if (pageSize) {
+      pageInfo.pageSize = pageSize
     }
-  })
+  }
+  // 分页改变时改变url，自动触发获取数据
+  watch(
+    () => ({ ...pageInfo }),
+    ({ current: newPn }, { current: oldPn }) => {
+      if (newPn !== oldPn) {
+        url.value = `/api/article?pn=${newPn}`
+        pageInfo.current = newPn
+      }
+    }
+  )
   // 获取数据
   const { isFetching, error, data } = useMyFetch<IResult>(url)
   watch([isFetching], () => {
     if (!isFetching.value && data.value) {
       const infos = data.value.infos
       const targetValue = infos.list as unknown as IArticle[]
-      pageInfo.value.total = infos.total
+      pageInfo.total = infos.total
       articles.value = targetValue
     }
     if (error.value) {
@@ -73,6 +79,7 @@ export const useArticles = (
   return {
     isFetching,
     data: filter ? filter(articles.value) : articles,
-    pageInfo: pageInfo
+    pageInfo: pageInfo,
+    pageHandler
   }
 }

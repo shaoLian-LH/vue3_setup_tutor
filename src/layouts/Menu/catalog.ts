@@ -92,6 +92,10 @@ export const Catalog: ICatalogItemProps[] = [
       {
         title: 'useTodoList',
         id: 'hookArea/todoList'
+      },
+      {
+        title: 'useArticle',
+        id: 'hookArea/table'
       }
     ]
   }

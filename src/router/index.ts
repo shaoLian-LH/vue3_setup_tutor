@@ -24,6 +24,7 @@ import WatchEffectUse from '@/tutor/logicUnderProxy/watchEffect/index.vue'
 import ComputedBaseUse from '@/tutor/logicUnderProxy/computed.vue'
 // hook
 import HookTodoList from '@/tutor/hookArea/todoList/index.vue'
+import HookTable from '@/tutor/hookArea/table/index.vue'
 
 const formatPathAndName = (pathName: string) => {
   const target = pathName.replace(/^\/*/, '')
@@ -104,6 +105,10 @@ const routes: Array<RouteRecordRaw> = [
       {
         ...formatPathAndName('hookArea/todoList'),
         component: HookTodoList
+      },
+      {
+        ...formatPathAndName('hookArea/table'),
+        component: HookTable
       }
     ]
   }
