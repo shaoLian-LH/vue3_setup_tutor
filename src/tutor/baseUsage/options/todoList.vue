@@ -69,13 +69,8 @@
                 {{ item.content }}
               </div>
               <div class="container w-4/12 flex flex-row">
-                <a-button
-                  type="primary"
-                  danger
-                  size="small"
-                  @click="removeAThing(item.id)"
-                >
-                  <span class="text-black">删除</span>
+                <a-button type="primary" danger @click="removeAThing(item.id)">
+                  <span>删除</span>
                 </a-button>
               </div>
             </div>

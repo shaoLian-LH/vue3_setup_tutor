@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-  import { defineProps } from 'vue'
   import { useTodoList } from './useTodoList'
   // props
   const props = defineProps({
@@ -9,7 +8,8 @@
     }
   })
   // logic
-  const { thing, list, submitAThing, removeAThing } = useTodoList()
+  const { thingRef, listRef, submitAThing, removeAThing } =
+    useTodoList('hookArea')
 </script>
 
 <template>
@@ -19,14 +19,18 @@
       <a-input
         class="w-7/12"
         placeholder="来添加点什么"
-        v-model:value="thing"
+        v-model:value="thingRef"
       />
       <a-button class="ml-8 w-1/12" @click="submitAThing" type="primary">
         添加
       </a-button>
     </div>
     <div class="container w-9/12">
-      <a-list v-if="list.length" item-layout="horizontal" :data-source="list">
+      <a-list
+        v-if="listRef.length"
+        item-layout="horizontal"
+        :data-source="listRef"
+      >
         <template #renderItem="{ item }">
           <a-list-item>
             <div
@@ -42,13 +46,8 @@
                 {{ item.content }}
               </div>
               <div class="container w-4/12 flex flex-row">
-                <a-button
-                  type="primary"
-                  danger
-                  size="small"
-                  @click="removeAThing(item.id)"
-                >
-                  <span class="text-black">删除</span>
+                <a-button type="primary" danger @click="removeAThing(item.id)">
+                  <span>删除</span>
                 </a-button>
               </div>
             </div>

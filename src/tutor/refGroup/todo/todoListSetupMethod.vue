@@ -7,10 +7,8 @@
     // toRefs
     // toRef
   } from 'vue'
-  interface IThing {
-    id: number
-    content: string
-  }
+  import { IThing } from '@/utils/store'
+
   interface ITodoListProps {
     searchTip: string
   }
@@ -53,7 +51,8 @@
       }
       // 移除一个事件
       const removeAThing = (id: number) => {
-        listRef.value = listRef.value.filter((conf) => conf.id !== id)
+        const index = listRef.value.findIndex((conf) => conf.id === id)
+        listRef.value.splice(index, 1)
       }
       return {
         searchTip: props.searchTip || '我想要',
@@ -102,13 +101,8 @@
                 {{ item.content }}
               </div>
               <div class="container w-4/12 flex flex-row">
-                <a-button
-                  type="primary"
-                  danger
-                  size="small"
-                  @click="removeAThing(item.id)"
-                >
-                  <span class="text-black">删除</span>
+                <a-button type="primary" danger @click="removeAThing(item.id)">
+                  <span>删除</span>
                 </a-button>
               </div>
             </div>

@@ -20,11 +20,9 @@ declare module 'vue' {
     ATable: typeof import('ant-design-vue/es')['Table']
     DynamicComponents: typeof import('./components/DynamicComponents.vue')['default']
     Error: typeof import('./components/Error.vue')['default']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     Loading: typeof import('./components/Loading.vue')['default']
     Markdown: typeof import('./components/Markdown.vue')['default']
     PropsAndEmit: typeof import('./components/PropsAndEmit.vue')['default']
-    Reactivity: typeof import('./components/Reactivity.vue')['default']
     SlotsAndAttrs: typeof import('./components/SlotsAndAttrs.vue')['default']
     StoryLayout: typeof import('./components/StoryLayout.vue')['default']
   }

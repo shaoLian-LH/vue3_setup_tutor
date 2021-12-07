@@ -19,7 +19,9 @@ import RefShallowUnPackage from '@/tutor/refGroup/refShallowUnPackage.vue'
 import HowToUseToRefAndToRefs from '@/tutor/refGroup/HowToUseToRefAndToRefs.vue'
 import TodoListWithRef from '@/tutor/refGroup/todo/index.vue'
 // 响应式下的业务逻辑
-import WatchBaseUse from '@/tutor/logicUnderProxy/watch.vue'
+import WatchBaseUse from '@/tutor/logicUnderProxy/watch/index.vue'
+import WatchEffectUse from '@/tutor/logicUnderProxy/watchEffect/index.vue'
+import ComputedBaseUse from '@/tutor/logicUnderProxy/computed.vue'
 // hook
 import HookTodoList from '@/tutor/hookArea/todoList/index.vue'
 
@@ -87,8 +89,16 @@ const routes: Array<RouteRecordRaw> = [
       },
       // 响应式下的业务逻辑
       {
+        ...formatPathAndName('logicUnderProxy/computed'),
+        component: ComputedBaseUse
+      },
+      {
         ...formatPathAndName('logicUnderProxy/watch'),
         component: WatchBaseUse
+      },
+      {
+        ...formatPathAndName('logicUnderProxy/watchEffect'),
+        component: WatchEffectUse
       },
       // hook
       {

@@ -72,8 +72,16 @@ export const Catalog: ICatalogItemProps[] = [
     id: 'logicUnderProxy',
     children: [
       {
-        title: 'watch与watchEffect',
+        title: '简单的computed',
+        id: 'logicUnderProxy/computed'
+      },
+      {
+        title: 'watch',
         id: 'logicUnderProxy/watch'
+      },
+      {
+        title: 'watchEffect',
+        id: 'logicUnderProxy/watchEffect'
       }
     ]
   },

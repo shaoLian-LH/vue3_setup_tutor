@@ -1,13 +1,5 @@
 <script lang="ts" setup>
-  import { defineProps, reactive } from 'vue'
-  interface IThing {
-    id: number
-    content: string
-  }
-  interface ITodoListData {
-    thing: string | undefined
-    list: IThing[]
-  }
+  import { ITodoListData } from '@/utils/store'
   // props
   const props = defineProps({
     searchTip: {
@@ -35,7 +27,8 @@
   }
   // 移除一个事件
   const removeAThing = (id: number) => {
-    todoListData.list = todoListData.list.filter((conf) => conf.id !== id)
+    const index = todoListData.list.findIndex((conf) => conf.id === id)
+    todoListData.list.splice(index, 1)
   }
 </script>
 
@@ -73,13 +66,8 @@
                 {{ item.content }}
               </div>
               <div class="container w-4/12 flex flex-row">
-                <a-button
-                  type="primary"
-                  danger
-                  size="small"
-                  @click="removeAThing(item.id)"
-                >
-                  <span class="text-black">删除</span>
+                <a-button type="primary" danger @click="removeAThing(item.id)">
+                  <span>删除</span>
                 </a-button>
               </div>
             </div>
