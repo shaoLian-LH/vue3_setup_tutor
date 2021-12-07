@@ -1,8 +1,17 @@
 import { useMyFetch } from './useMyFetch'
 import { Ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { IArticle } from '@/@types/articles'
-import { IPageInfo } from '@/@types/global'
+import { IPageInfo } from '@/global'
+
+export interface IArticle {
+  addTime: string
+  fire: number
+  id: string
+  introduce: string
+  tagName: string
+  title: string
+  typeId: number
+}
 
 interface IResult {
   infos: IPageInfo<IArticle>

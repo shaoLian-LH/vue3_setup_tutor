@@ -3,8 +3,8 @@
   import { useMyFetch } from 'hooks/useMyFetch'
   import { columns } from './tableConfig'
   import { message } from 'ant-design-vue'
-  import { IArticle } from '@/@types/articles'
-  import { IPageInfo } from '@/@types/global'
+  import { IArticle } from '@/hooks/useArticles'
+  import { IPageInfo } from '@/global'
   import { TablePaginationConfig } from 'ant-design-vue/lib/table/index'
 
   // 定义类型
