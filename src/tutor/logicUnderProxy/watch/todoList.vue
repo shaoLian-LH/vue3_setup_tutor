@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ITodoListData } from '@/utils/store'
   // import { cloneDeep } from 'lodash'
-  import Log from '@/utils/log'
+  // import Log from '@/utils/log'
   // data
   const todoListData = reactive<ITodoListData>({
     thing: undefined,
@@ -59,31 +59,32 @@
 
   // #part5
   // 监听一个响应式对象
-  watch(
-    () => ({ ...todoListData }), // 监听一整个对象，返回对应ref对象
-    (
-      { thing: newThing, list: newList },
-      { thing: oldThing, list: oldList }
-    ) => {
-      Log.out(
-        `watch todoListData - newThing - ${newThing} - newList - `,
-        newList
-      )
-      Log.out(
-        `watch todoListData - oldThing - ${oldThing} - oldList - `,
-        oldList
-      )
-    },
-    {
-      immediate: false, // 初始化之前就进行监听，默认为false
-      /**
-       * pre: 默认，数据更新时就触发
-       * post: 视图更新结束后触发，nextTick
-       * sync: 如果一个reactive对象里面的多个值被一起改变，将分别触发监听
-       */
-      flush: 'post'
-    }
-  )
+  // watch(
+  //   () => ({ ...todoListData }), // 监听一整个对象，返回对应ref对象
+  //   (
+  //     { thing: newThing, list: newList },
+  //     { thing: oldThing, list: oldList }
+  //   ) => {
+  //     Log.out(
+  //       `watch todoListData - newThing - ${newThing} - newList - `,
+  //       newList
+  //     )
+  //     Log.out(
+  //       `watch todoListData - oldThing - ${oldThing} - oldList - `,
+  //       oldList
+  //     )
+  //   },
+  //   {
+  //     deep: true,
+  //     immediate: false, // 初始化之前就进行监听，默认为false
+  //     /**
+  //      * pre: 默认，数据更新时就触发
+  //      * post: 视图更新结束后触发，nextTick
+  //      * sync: 如果一个reactive对象里面的多个值被一起改变，将分别触发监听
+  //      */
+  //     flush: 'sync'
+  //   }
+  // )
 
   // 增加一个事件
   const submitAThing = () => {
